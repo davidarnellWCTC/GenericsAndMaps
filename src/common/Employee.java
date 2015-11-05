@@ -1,5 +1,6 @@
 package common;
 
+import java.util.Objects;
 import org.apache.commons.lang3.builder.CompareToBuilder;
 
 /**
@@ -27,6 +28,13 @@ public class Employee implements Comparable {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.ssn);
+        return hash;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -35,18 +43,35 @@ public class Employee implements Comparable {
             return false;
         }
         final Employee other = (Employee) obj;
-        if (this.empID != other.empID) {
+        if (!Objects.equals(this.ssn, other.ssn)) {
             return false;
         }
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + this.empID;
-        return hash;
-    }
+    
+    
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+//        final Employee other = (Employee) obj;
+//        if (this.ssn != other.ssn) {
+//            return false;
+//        }
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int hash = 7;
+//        hash = 67 * hash + this.ssn;
+//        return hash;
+//    }
 
 
     public int compareTo(Object other) {
@@ -113,7 +138,7 @@ public class Employee implements Comparable {
 
     @Override
     public String toString() {
-        return "Employee{" + "empID=" + empID + ", lastName=" + lastName + ", firstName=" + firstName + ", ssn=" + ssn + '}';
+        return "Employee: " + firstName + " " + lastName;
     }
 
 }
