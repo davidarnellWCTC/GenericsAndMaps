@@ -4,17 +4,17 @@ import java.util.Objects;
 import org.apache.commons.lang3.builder.CompareToBuilder;
 
 /**
- * This class represents an Employee entity that will be sorted by its
- * "natural order," defined to be by empID.
- * 
+ * This class represents an Employee entity that will be sorted by its "natural
+ * order," defined to be by empID.
+ *
  * @author jlombardo
  */
 public class Employee implements Comparable {
+
     private int empID;
     private String lastName;
     private String firstName;
     private String ssn;
-
 
     public Employee() {
     }
@@ -49,8 +49,6 @@ public class Employee implements Comparable {
         return true;
     }
 
-    
-    
 //    @Override
 //    public boolean equals(Object obj) {
 //        if (obj == null) {
@@ -72,33 +70,29 @@ public class Employee implements Comparable {
 //        hash = 67 * hash + this.ssn;
 //        return hash;
 //    }
+    /**
+     * This method compares two Employee objects The type this method is
+     * intended to accept is an Employee object
+     *
+     * @param other - Other is the employee object passed into the compareTo
+     * function
+     * @return
+     */
+    public int compareTo(Object other) throws IllegalArgumentException {
 
+        //Checks to make sure the object being compared is of type Employee
+        if (!(other instanceof Employee)) {
+            throw new IllegalArgumentException();
+        }
 
-    public int compareTo(Object other) {
-        
-        Employee o = (Employee)other;
-        
+        Employee o = (Employee) other;
+
         return new CompareToBuilder()
-               .append(this.empID, o.empID)
-               .toComparison();
-//        // NO Magic numbers! Use constants for readability!
-//        final int BEFORE = -1;
-//	final int EQUAL = 0;
-//	final int AFTER = 1;
-//
-//        Employee e = (Employee)other;
-//
-//        if(this.equals(e)) return EQUAL;
-////
-////        if(this.empID > e.empID) return BEFORE;
-////        if(this.empID < e.empID) return AFTER;
-//
-//        // The String class already has a compareTo implementation, so
-//        // just use that.
-//        int comparison = this.ssn.compareTo(e.getSsn());
-//        if( comparison != EQUAL) return comparison;
-//
-//        return EQUAL; // default
+                //.append(this.empID, o.empID)
+                // Compare to changed to compare the employee ssn
+                // change made to accomodate requirements of the Maps lab
+                .append(this.ssn, o.ssn)
+                .toComparison();
     }
 
     public String getSsn() {
@@ -114,10 +108,10 @@ public class Employee implements Comparable {
     }
 
     public void setFirstName(String value) throws IllegalArgumentException {
-            if(value == null || value.length() == 0) {
-                    throw new IllegalArgumentException("value cannot be null or zero length");
-            }
-            firstName = value;
+        if (value == null || value.length() == 0) {
+            throw new IllegalArgumentException("value cannot be null or zero length");
+        }
+        firstName = value;
     }
 
     public String getLastName() {
