@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.CompareToBuilder;
  *
  * @author jlombardo
  */
-public class Employee implements Comparable {
+public class Employee implements Comparable<Employee> {
 
     private int empID;
     private String lastName;
@@ -78,12 +78,14 @@ public class Employee implements Comparable {
      * function
      * @return
      */
-    public int compareTo(Object other) throws IllegalArgumentException {
+    @Override
+    public int compareTo(Employee other){// throws IllegalArgumentException {
 
+        // Not needed, type changed from Object to Employee
         //Checks to make sure the object being compared is of type Employee
-        if (!(other instanceof Employee)) {
-            throw new IllegalArgumentException();
-        }
+//        if (!(other instanceof Employee)) {
+//            throw new IllegalArgumentException();
+//        }
 
         Employee o = (Employee) other;
 
@@ -134,5 +136,10 @@ public class Employee implements Comparable {
     public String toString() {
         return "Employee: " + firstName + " " + lastName;
     }
+
+//    @Override
+//    public int compareTo(Employee o) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
 }

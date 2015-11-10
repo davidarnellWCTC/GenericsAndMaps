@@ -37,11 +37,14 @@ public class LabProblemThree {
 //        employees.add(e2);
 //        employees.add(e3);
 //        employees.add(e4);
-        employees.put("333-33-3333", e1);
-        employees.put("111-11-1111", e2);
-        employees.put("444-44-4444", e3);
+        // TreeMap is two dimensional
+        // Stores keys and values
+        // no duplicate values
+        employees.put(e1.getSsn(), e1);
+        employees.put(e2.getSsn(), e2);
+        employees.put(e3.getSsn(), e3);
         // Employee #4 has the same ssn key as Employee #3
-        employees.put("444-44-4444", e4);
+        employees.put(e4.getSsn(), e4);
 
         // This runs through the TreeMap and prints all of the employee toString
         // The duplicate ssn for #4 is removed

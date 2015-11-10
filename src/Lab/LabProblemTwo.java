@@ -33,19 +33,20 @@ public class LabProblemTwo {
 
         // put(key, value)
         // put(ssn, employee object)
-        employees.put("333-33-3333", e1);
-        employees.put("111-11-1111", e2);
-        employees.put("444-44-4444", e3);
+        employees.put(e1.getSsn(), e1);
+        employees.put(e2.getSsn(), e2);
+        employees.put(e3.getSsn(), e3);
         // Employee #4 has the same ssn key as Employee #3
-        employees.put("444-44-4444", e4);
+        employees.put(e4.getSsn(), e4);
         
         Set keys = employees.keySet();
         for(Object key : keys) {            
             // This prints the employee key and then the employee toString function
-            System.out.println(key.toString());
+            //System.out.println(key.toString());
+            System.out.println(key);
             // There is probaby a better way to do this.
-            System.out.println(employees.get(key.toString()).toString());
-            
+            System.out.println(employees.get(key));
+            //System.out.println(employees.get(key.toString()));            
         }
         
         //hashMapLoop(employees);

@@ -23,9 +23,14 @@ public class LabProblemFour {
         Employee e3 = new Employee(3, "Jones", "Bob", "444-44-4444");
         Employee e4 = new Employee(4, "Arnell", "David", "444-44-4444");
 
+        // Sets are not used for storage 
+        // Sets are used for transformation
         Set<Employee> employees = new TreeSet<>();
         //Set<Object> employees = new TreeSet<>();
         
+        // One dimensional
+        // just values and no keys
+        // no duplicate values
         employees.add(e1);
         employees.add(e2);
         employees.add(e3);
