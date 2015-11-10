@@ -1,4 +1,4 @@
-package common.Lab;
+package Lab;
 
 // Import required packages and the Employee class
 import static com.sun.org.apache.xalan.internal.lib.ExsltDynamic.map;

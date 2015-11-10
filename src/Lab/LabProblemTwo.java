@@ -1,8 +1,8 @@
 
-package common.Lab;
+package Lab;
 
 import common.Employee;
-import static common.Lab.Lab.hashMapLoop;
+import static Lab.Lab.hashMapLoop;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

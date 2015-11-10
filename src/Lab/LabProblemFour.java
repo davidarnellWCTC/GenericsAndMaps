@@ -1,5 +1,5 @@
 
-package common.Lab;
+package Lab;
 
 import common.Employee;
 import java.util.Map;
